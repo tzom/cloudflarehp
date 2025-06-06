@@ -1,10 +1,6 @@
 export default {
-	async fetch(request: Request): Promise<Response> {
-		/**
-		 * Replace `remote` with the host you wish to send requests to
-		 */
-		const remote = "https://example.com";
-
-		return await fetch(remote, request);
-	},
+  async fetch(request: Request, env: any, ctx: ExecutionContext): Promise<Response> {
+    // Serve the index.html file
+    return env.ASSETS.fetch(request);
+  },
 };
